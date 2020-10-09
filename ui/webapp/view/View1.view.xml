@@ -5,6 +5,7 @@
 				<Page id="page" title="{i18n>title}">
 					<content>
 						<Text text="demo"/>
+						<Button text="Start Workflow" press="onPressStartWorkflow"/>
 					</content>
 				</Page>
 			</pages>

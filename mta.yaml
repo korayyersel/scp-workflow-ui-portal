@@ -15,6 +15,7 @@ modules:
       - name: workflow-sampleproject-uaa
       - name: workflow-sampleproject-dest
       - name: workflow-sampleproject-portal-resources
+      - name: workflow-sampleproject-workflowservice
   - name: workflow-sampleproject-ui-deployer
     type: com.sap.html5.application-content
     path: ui-deployer
