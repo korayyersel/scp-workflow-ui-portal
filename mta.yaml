@@ -14,6 +14,7 @@ modules:
       - name: workflow-sampleproject-html5-repo-runtime
       - name: workflow-sampleproject-uaa
       - name: workflow-sampleproject-dest
+      - name: workflow-sampleproject-portal-resources
   - name: workflow-sampleproject-ui-deployer
     type: com.sap.html5.application-content
     path: ui-deployer
@@ -42,6 +43,20 @@ modules:
         - npm run build
       supported-platforms: []
       build-result: dist
+  - name: workflow-sampleproject-launchpad
+    type: com.sap.application.portal.content
+    path: launchpad
+    requires:
+      - name: workflow-sampleproject-portal-resources
+        parameters:
+          service-key:
+            name: content-deploy-key
+            config:
+              content-endpoint: developer
+          content-target: true
+      - name: workflow-sampleproject-uaa
+      - name: workflow-sampleproject-html5-repo-host
+      - name: workflow-sampleproject-ui-deployer
 resources:
   - name: workflow-sampleproject-html5-repo-runtime
     parameters:
@@ -68,4 +83,9 @@ resources:
     parameters:
       service-plan: lite
       service: destination
+    type: org.cloudfoundry.managed-service
+  - name: workflow-sampleproject-portal-resources
+    parameters:
+      service-plan: standard
+      service: portal
     type: org.cloudfoundry.managed-service
