@@ -1,0 +1,71 @@
+ID: workflow-sampleproject
+_schema-version: '2.1'
+parameters:
+  deploy_mode: html5-repo
+version: 0.0.1
+modules:
+  - name: workflow-sampleproject-approuter
+    type: approuter.nodejs
+    path: approuter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: workflow-sampleproject-html5-repo-runtime
+      - name: workflow-sampleproject-uaa
+      - name: workflow-sampleproject-dest
+  - name: workflow-sampleproject-ui-deployer
+    type: com.sap.html5.application-content
+    path: ui-deployer
+    requires:
+      - name: workflow-sampleproject-html5-repo-host
+    build-parameters:
+      requires:
+        - name: workflow-sampleproject-ui
+          artifacts:
+            - './*'
+          target-path: resources/ui
+  - name: workflow-sampleproject-workflow
+    type: com.sap.application.content
+    path: workflow
+    requires:
+      - name: workflow-sampleproject-workflowservice
+        parameters:
+          content-target: true
+  - name: workflow-sampleproject-ui
+    type: html5
+    path: ui
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+      supported-platforms: []
+      build-result: dist
+resources:
+  - name: workflow-sampleproject-html5-repo-runtime
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: workflow-sampleproject-html5-repo-host
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: workflow-sampleproject-workflowservice
+    parameters:
+      service-plan: standard
+      service: workflow
+    type: org.cloudfoundry.managed-service
+  - name: workflow-sampleproject-uaa
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+    type: org.cloudfoundry.managed-service
+  - name: workflow-sampleproject-dest
+    parameters:
+      service-plan: lite
+      service: destination
+    type: org.cloudfoundry.managed-service
