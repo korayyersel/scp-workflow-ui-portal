@@ -41,12 +41,29 @@
 			"id": "endevent1",
 			"name": "EndEvent1"
 		},
+		"2119779f-e4ef-463f-afb6-1c919bcaa098": {
+			"classDefinition": "com.sap.bpm.wfs.UserTask",
+			"subject": "test1",
+			"priority": "MEDIUM",
+			"isHiddenInLogForParticipant": false,
+			"userInterface": "sapui5://comqperiorworkflowsampleui/com.qperior.workflowsample.ui",
+			"recipientUsers": "koray.yersel@q-perior.com",
+			"id": "usertask1",
+			"name": "UserTask1"
+		},
 		"b6303f1d-5cb0-486f-95cd-a693103d03d8": {
 			"classDefinition": "com.sap.bpm.wfs.SequenceFlow",
 			"id": "sequenceflow1",
 			"name": "SequenceFlow1",
 			"sourceRef": "8d2e73a9-4fcd-4fea-9ecf-e6afb7f68cb9",
 			"targetRef": "2119779f-e4ef-463f-afb6-1c919bcaa098"
+		},
+		"9ea39617-54b2-4f15-8f6f-2ffd67d8435f": {
+			"classDefinition": "com.sap.bpm.wfs.SequenceFlow",
+			"id": "sequenceflow2",
+			"name": "SequenceFlow2",
+			"sourceRef": "2119779f-e4ef-463f-afb6-1c919bcaa098",
+			"targetRef": "1753f448-f6f7-4ae9-b3cf-ff6ce1197ba9"
 		},
 		"4e4564a6-2db7-4207-9e7d-3d00ac5fd727": {
 			"classDefinition": "com.sap.bpm.wfs.ui.Diagram",
@@ -81,23 +98,6 @@
 			"targetSymbol": "f953fbc9-8a50-4e75-9091-cf5117a9dd7a",
 			"object": "b6303f1d-5cb0-486f-95cd-a693103d03d8"
 		},
-		"24053167-beb7-4cdc-b5b2-26e2a4f1bce5": {
-			"classDefinition": "com.sap.bpm.wfs.LastIDs",
-			"sequenceflow": 2,
-			"startevent": 1,
-			"endevent": 1,
-			"usertask": 1
-		},
-		"2119779f-e4ef-463f-afb6-1c919bcaa098": {
-			"classDefinition": "com.sap.bpm.wfs.UserTask",
-			"subject": "test1",
-			"priority": "MEDIUM",
-			"isHiddenInLogForParticipant": false,
-			"userInterface": "sapui5://todo/todo",
-			"recipientUsers": "koray.yersel@q-perior.com",
-			"id": "usertask1",
-			"name": "UserTask1"
-		},
 		"f953fbc9-8a50-4e75-9091-cf5117a9dd7a": {
 			"classDefinition": "com.sap.bpm.wfs.ui.UserTaskSymbol",
 			"x": 190,
@@ -106,19 +106,19 @@
 			"height": 60,
 			"object": "2119779f-e4ef-463f-afb6-1c919bcaa098"
 		},
-		"9ea39617-54b2-4f15-8f6f-2ffd67d8435f": {
-			"classDefinition": "com.sap.bpm.wfs.SequenceFlow",
-			"id": "sequenceflow2",
-			"name": "SequenceFlow2",
-			"sourceRef": "2119779f-e4ef-463f-afb6-1c919bcaa098",
-			"targetRef": "1753f448-f6f7-4ae9-b3cf-ff6ce1197ba9"
-		},
 		"f2ca562b-da73-4e78-b9e5-432809d3a059": {
 			"classDefinition": "com.sap.bpm.wfs.ui.SequenceFlowSymbol",
 			"points": "240,116.75 357.5,116.75",
 			"sourceSymbol": "f953fbc9-8a50-4e75-9091-cf5117a9dd7a",
 			"targetSymbol": "cb6f2d03-83d0-4226-9051-b3c481feeb02",
 			"object": "9ea39617-54b2-4f15-8f6f-2ffd67d8435f"
+		},
+		"24053167-beb7-4cdc-b5b2-26e2a4f1bce5": {
+			"classDefinition": "com.sap.bpm.wfs.LastIDs",
+			"sequenceflow": 2,
+			"startevent": 1,
+			"endevent": 1,
+			"usertask": 1
 		}
 	}
 }

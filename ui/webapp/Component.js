@@ -22,7 +22,17 @@ sap.ui.define([
 
 			// enable routing
 			this.getRouter().initialize();
-
+			
+			// look for task context and navigate to task ui automaticly
+			var startupParameters = this.getComponentData().startupParameters;
+			if(startupParameters && startupParameters.taskModel){
+				var taskModel = startupParameters.taskModel;
+				var taskData = taskModel.getData();
+				var taskId = taskData.InstanceID;
+				var taskType = taskData.TaskDefinitionID;
+				this.getRouter().navTo("TaskRoute", { taskId: taskId, taskType: taskType} );
+			}
+			
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 		}
