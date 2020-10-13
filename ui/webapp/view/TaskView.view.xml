@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.qperior.workflowsample.ui.controller.View2"
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.qperior.workflowsample.ui.controller.TaskView"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<App>
 		<pages>

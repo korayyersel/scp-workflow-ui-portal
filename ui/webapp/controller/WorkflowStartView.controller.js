@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (Controller, MessageToast) {
 	"use strict";
 
-	return Controller.extend("com.qperior.workflowsample.ui.controller.View1", {
+	return Controller.extend("com.qperior.workflowsample.ui.controller.WorkflowStartView", {
 		onInit: function () {
 
 		},

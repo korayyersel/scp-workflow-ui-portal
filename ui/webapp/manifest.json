@@ -45,10 +45,10 @@
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
-			"viewName": "com.qperior.workflowsample.ui.view.View1",
+			"viewName": "com.qperior.workflowsample.ui.view.WorkflowStartView",
 			"type": "XML",
 			"async": true,
-			"id": "View1"
+			"id": "WorkflowStartView"
 		},
 		"dependencies": {
 			"minUI5Version": "1.65.6",
@@ -107,15 +107,15 @@
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "View1",
-					"viewName": "View1"
+					"viewId": "WorkflowStartView",
+					"viewName": "WorkflowStartView"
 				},
 				"TaskView": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "View2",
-					"viewName": "View2"
+					"viewId": "TaskView",
+					"viewName": "TaskView"
 				}
 			}
 		}
