@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageToast"
-], function (Controller,MessageToast) {
+], function (Controller, MessageToast) {
 	"use strict";
 
 	return Controller.extend("com.qperior.workflowsample.ui.controller.TaskView", {
@@ -18,9 +18,27 @@ sap.ui.define([
 		_onObjectMatched: function (oEvent) {
 			var taskId = oEvent.getParameter("arguments").taskId;
 			var taskType = oEvent.getParameter("arguments").taskType;
-			MessageToast.show("taskId: "+ taskId + " taskType: " +taskType);
+			MessageToast.show("taskId: " + taskId + " taskType: " + taskType);
 			//TODO
+			// add form for task view
+			// fix display for task view
+			// add decisions
+			
 			//https://blogs.sap.com/2020/08/31/enhancing-custom-application-as-workflow-task-ui-in-cloud-foundry/
+			$.ajax({
+				url: "/comqperiorworkflowsampleui/bpmworkflowruntime/v1/task-instances/" + taskId + "/context",
+				method: "GET",
+				contentType: "application/json",
+				dataType: "json",
+				success: function (result, xhr, data) {
+					var context = data.responseJSON;
+					this.getView().getModel("formData").setData(context);
+				}.bind(this)
+			});
+		},
+
+		debugme: function () {
+			var a = 1;
 		}
 
 		/**

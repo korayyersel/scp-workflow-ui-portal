@@ -5,6 +5,7 @@
 			<Page title="Title">
 				<content>
 					<Text text="demo2"/>
+					<Button text="debugger" press="debugme"/>
 				</content>
 			</Page>
 		</pages>
