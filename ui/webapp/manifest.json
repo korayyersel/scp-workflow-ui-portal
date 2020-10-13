@@ -68,14 +68,17 @@
 				"settings": {
 					"bundleName": "com.qperior.workflowsample.ui.i18n.i18n"
 				}
+			},
+			"formData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {}
 			}
+
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -87,21 +90,19 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [
-				{
-					"name": "DefaultRoute",
-					"pattern": "DefaultRoute",
-					"target": [
-						"DefaultView"
-					]
-				},{
-					"name": "TaskRoute",
-					"pattern": "task/{taskId},{taskType}",
-					"target": [
-						"TaskView"
-					]
-				}
-			],
+			"routes": [{
+				"name": "DefaultRoute",
+				"pattern": "DefaultRoute",
+				"target": [
+					"DefaultView"
+				]
+			}, {
+				"name": "TaskRoute",
+				"pattern": "task/{taskId},{taskType}",
+				"target": [
+					"TaskView"
+				]
+			}],
 			"targets": {
 				"DefaultView": {
 					"viewType": "XML",

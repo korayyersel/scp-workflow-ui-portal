@@ -9,6 +9,8 @@ sap.ui.define([
 
 		},
 		onPressStartWorkflow: function (evt) {
+			var contextData = this.getView().getModel("formData").getData();
+			var workflowDefinitionId = "samplewf";
 			$.ajax({
 				url: "/comqperiorworkflowsampleui/bpmworkflowruntime/v1/xsrf-token",
 				method: "GET",
@@ -18,16 +20,13 @@ sap.ui.define([
 				success: function (result, xhr, data) {
 					var token = data.getResponseHeader("X-CSRF-Token");
 					if (token === null) return;
-
+					
 					$.ajax({
 						url: "/comqperiorworkflowsampleui/bpmworkflowruntime/v1/workflow-instances",
 						type: "POST",
 						data: JSON.stringify({
-							definitionId: "samplewf",
-							context: {
-								lastname: "yersel",
-								fistname: "koray"
-							}
+							definitionId: workflowDefinitionId,
+							context: contextData
 						}),
 						headers: {
 							"X-CSRF-Token": token,

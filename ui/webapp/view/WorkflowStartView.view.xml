@@ -1,11 +1,39 @@
-<mvc:View controllerName="com.qperior.workflowsample.ui.controller.WorkflowStartView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<mvc:View controllerName="com.qperior.workflowsample.ui.controller.WorkflowStartView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<Text text="demo"/>
-						<Button text="Start Workflow" press="onPressStartWorkflow"/>
+						<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Address" labelSpanXL="3" labelSpanL="3"
+							labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+							columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Label text="Name"/>
+								<Input id="name" value="{formData>/Name}"/>
+								<Label text="Street/No."/>
+								<Input value="{formData>/Street}"></Input>
+								<Input value="{formData>/HouseNumber}">
+									<layoutData>
+										<l:GridData span="XL1 L2 M2 S4"/>
+									</layoutData>
+								</Input>
+								<Label text="ZIP Code/City"/>
+								<Input value="{formData>/ZIPCode}">
+									<layoutData>
+										<l:GridData span="XL1 L2 M2 S4"/>
+									</layoutData>
+								</Input>
+								<Input value="{formData>/City}"/>
+								<Label text=""/>
+								<Text text=""/>
+								<Button text="Workflow starten" press="onPressStartWorkflow">
+									<layoutData>
+										<l:GridData span="XL1 L2 M2 S4"/>
+									</layoutData>
+								</Button>
+							</f:content>
+						</f:SimpleForm>
 					</content>
 				</Page>
 			</pages>
