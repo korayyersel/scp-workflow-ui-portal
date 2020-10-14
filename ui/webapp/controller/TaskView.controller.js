@@ -32,15 +32,10 @@ sap.ui.define([
 				dataType: "json",
 				success: function (result, xhr, data) {
 					var context = data.responseJSON;
-					this.getView().getModel("formData").setData(context);
+					this.getView().getModel("taskData").setData(context);
 				}.bind(this)
 			});
-		},
-
-		debugme: function () {
-			var a = 1;
 		}
-
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).

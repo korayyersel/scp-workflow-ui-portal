@@ -72,8 +72,11 @@
 			"formData": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {}
+			},
+			"taskData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {}
 			}
-
 		},
 		"resources": {
 			"css": [{

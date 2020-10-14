@@ -1,11 +1,62 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.qperior.workflowsample.ui.controller.TaskView"
-	xmlns:html="http://www.w3.org/1999/xhtml">
-	<App>
+<mvc:View controllerName="com.qperior.workflowsample.ui.controller.TaskView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<App id="app">
 		<pages>
-			<Page title="Title">
+			<Page id="page" title="{i18n>title}">
 				<content>
-					<Text text="demo2"/>
-					<Button text="debugger" press="debugme"/>
+					<l:VerticalLayout width="100%">
+						<l:content>
+							<ObjectHeader title="{taskHeaderData>/Title}" titleActive="false">
+								<attributes>
+									<ObjectAttribute title="Created On" text="{taskHeaderData>/CreatedOn}"/>
+									<ObjectAttribute title="Description" text="{taskHeaderData>/Description}"/>
+								</attributes>
+								<statuses>
+									<ObjectStatus text="{taskHeaderData>/Status}" state="None"/>
+									<ObjectStatus text="{taskHeaderData>/Priority}" state="{taskHeaderData>/PriorityState}"/>
+								</statuses>
+							</ObjectHeader>
+							<Panel class="sapUiResponsiveMargin" accessibleRole="Region">
+								<headerToolbar>
+									<OverflowToolbar>
+										<Title text="Requestor Details"/>
+									</OverflowToolbar>
+								</headerToolbar>
+								<content>
+									<f:Form id="FormDisplay354" editable="false">
+										<f:title>
+											<core:Title text="Address"/>
+										</f:title>
+										<f:layout>
+											<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+												emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+										</f:layout>
+										<f:formContainers>
+											<f:FormContainer>
+												<f:formElements>
+													<f:FormElement label="Name">
+														<f:fields>
+															<Text text="{taskData>/Name}" id="nameText"/>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Street">
+														<f:fields>
+															<Text text="{taskData>/Street} {taskData>/HouseNumber}"/>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="ZIP Code/City">
+														<f:fields>
+															<Text text="{taskData>/ZIPCode} {taskData>/City}"/>
+														</f:fields>
+													</f:FormElement>
+												</f:formElements>
+											</f:FormContainer>
+										</f:formContainers>
+									</f:Form>
+								</content>
+							</Panel>
+						</l:content>
+					</l:VerticalLayout>
 				</content>
 			</Page>
 		</pages>
