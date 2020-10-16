@@ -39,6 +39,12 @@ sap.ui.define([
                     taskData.PriorityState = "Success";
                 }
                 taskData.CreatedOnStr = taskData.CreatedOn.toDateString();
+                
+                // read description
+                startupParameters.inboxAPI.getDescription("NA", taskData.InstanceID).done(function (dataDescr) {
+                    taskData.Description = dataDescr.Description;
+                }).fail(function (errorText) { });
+                
                 // set data for task header model
                 this.getModel("taskHeaderData").setData(taskData);
 
