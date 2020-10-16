@@ -45,7 +45,7 @@ modules:
       supported-platforms: []
       build-result: dist
   - name: workflow-sampleproject-launchpad
-    type: com.sap.application.portal.content
+    type: com.sap.application.content
     path: launchpad
     requires:
       - name: workflow-sampleproject-portal-resources
