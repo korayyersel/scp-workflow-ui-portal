@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.qperior.workflowsample.ui.controller.TaskView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+<mvc:View controllerName="com.qperior.workflowsample.ui.controller.FirstTaskView" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
 	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
 	<App id="app">
 		<pages>
@@ -23,7 +23,7 @@
 									</OverflowToolbar>
 								</headerToolbar>
 								<content>
-									<f:Form id="FormDisplay354" editable="false">
+									<f:Form id="FirstTaskFormDisplay" editable="false">
 										<f:title>
 											<core:Title text="Address"/>
 										</f:title>
