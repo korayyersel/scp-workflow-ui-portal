@@ -16,3 +16,6 @@ mergedManifestDescriptor.json
 APIExternalProducer.js
 .*/APIExternalProducer.js
 ui-deployer/node_modules/
+ui-deployer/resources/
+ui/dist/
+ui/node_modules/
