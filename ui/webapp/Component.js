@@ -44,57 +44,69 @@ sap.ui.define([
 
                 var that = this;
 
-                var oNegativeAction = {
-                    sBtnTxt: "Reject",
-                    onBtnPressed: function (e) {
-                        that._completeTask(that.oComponentData.inboxHandle.attachmentHandle.detailModel.getData().InstanceID, "No")
-                    }
-                };
-
-                var oPositiveAction = {
-                    sBtnTxt: "Approve",
-                    onBtnPressed: function (e) {
-                        that._completeTask(that.oComponentData.inboxHandle.attachmentHandle.detailModel.getData().InstanceID, "Yes")
-                    }
-                };
-
-                // add task action buttons
-                startupParameters.inboxAPI.addAction({
-                    action: oNegativeAction.sBtnTxt,
-                    label: oNegativeAction.sBtnTxt,
-                    type: "Reject"
-                }, oNegativeAction.onBtnPressed);
-
-                startupParameters.inboxAPI.addAction({
-                    action: oPositiveAction.sBtnTxt,
-                    label: oPositiveAction.sBtnTxt,
-                    type: "Accept"
-                }, oPositiveAction.onBtnPressed);
-
                 var taskId = taskData.InstanceID;
                 var taskType = taskData.TaskDefinitionID;
 
-                // navigate to task view
-                if(taskData.TaskDefinitionName === "FirstTask"){
+                // add task actions and navigate to task view according to task definition
+                if (taskData.TaskDefinitionName === "FirstTask") {
+                    var oNegativeAction = {
+                        sBtnTxt: "Reject",
+                        onBtnPressed: function (e) {
+                            that._completeTask(that.oComponentData.inboxHandle.attachmentHandle.detailModel.getData().InstanceID, {FirstTaskResult: "no"})
+                        }
+                    };
+
+                    var oPositiveAction = {
+                        sBtnTxt: "Approve",
+                        onBtnPressed: function (e) {
+                            that._completeTask(that.oComponentData.inboxHandle.attachmentHandle.detailModel.getData().InstanceID, {FirstTaskResult: "yes"})
+                        }
+                    };
+
+                    // add task action buttons
+                    startupParameters.inboxAPI.addAction({
+                        action: oNegativeAction.sBtnTxt,
+                        label: oNegativeAction.sBtnTxt,
+                        type: "Reject"
+                    }, oNegativeAction.onBtnPressed);
+
+                    startupParameters.inboxAPI.addAction({
+                        action: oPositiveAction.sBtnTxt,
+                        label: oPositiveAction.sBtnTxt,
+                        type: "Accept"
+                    }, oPositiveAction.onBtnPressed);
                     this.getRouter().navTo("FirstTaskRoute", { taskId: taskId, taskType: taskType });
-                } else if(taskData.TaskDefinitionName === "SecondTask"){
+                } else if (taskData.TaskDefinitionName === "SecondTask") {
+                    var oFinishAction = {
+                        sBtnTxt: "Finish process",
+                        onBtnPressed: function (e) {
+                            that._completeTask(that.oComponentData.inboxHandle.attachmentHandle.detailModel.getData().InstanceID, {SecondTaskResult: "completed"})
+                        }
+                    };
+
+                    // add task action buttons
+                    startupParameters.inboxAPI.addAction({
+                        action: oFinishAction.sBtnTxt,
+                        label: oFinishAction.sBtnTxt,
+                        type: "Approve"
+                    }, oFinishAction.onBtnPressed);
                     this.getRouter().navTo("SecondTaskRoute", { taskId: taskId, taskType: taskType });
                 }
-                
+
             }
 
             // set the device model
             this.setModel(models.createDeviceModel(), "device");
         },
 
-        _completeTask: function (taskId, approvalStatus) {
+        _completeTask: function (taskId, taskCompletionContext) {
             var token = this._fetchToken();
             $.ajax({
                 url: "/comqperiorworkflowsampleui/bpmworkflowruntime/v1/task-instances/" + taskId,
                 method: "PATCH",
                 contentType: "application/json",
                 async: false,
-                data: "{\"status\": \"COMPLETED\", \"context\": {\"FirstTaskResult\":\"" + approvalStatus + "\"}}",
+                data: JSON.stringify({ status: "COMPLETED", context: taskCompletionContext }),
                 headers: {
                     "X-CSRF-Token": token
                 }
