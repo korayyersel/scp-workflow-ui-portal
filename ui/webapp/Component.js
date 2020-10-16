@@ -27,7 +27,18 @@ sap.ui.define([
 			var startupParameters = this.getComponentData().startupParameters;
 			if(startupParameters && startupParameters.taskModel){
 				var taskModel = startupParameters.taskModel;
-				var taskData = taskModel.getData();
+                var taskData = taskModel.getData();
+                
+                if(taskData.Priority === "HIGH"){
+                    taskData.PriorityState  = "Warning";
+                } else if (taskData.Priority === "VERY HIGH") {
+                    taskData.PriorityState = "Error";
+                } else {
+                    taskData.PriorityState = "Success";
+                }
+                taskData.CreatedOnStr = taskData.CreatedOn.toDateString();
+                this.getModel("taskHeaderData").setData(taskData);
+                
 				var taskId = taskData.InstanceID;
 				var taskType = taskData.TaskDefinitionID;
 				this.getRouter().navTo("TaskRoute", { taskId: taskId, taskType: taskType} );

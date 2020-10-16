@@ -2,13 +2,13 @@
 	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
 	<App id="app">
 		<pages>
-			<Page id="page" title="{i18n>title}">
+			<Page id="page" title="{i18n>taskTitle}">
 				<content>
 					<l:VerticalLayout width="100%">
 						<l:content>
-							<ObjectHeader title="{taskHeaderData>/Title}" titleActive="false">
+							<ObjectHeader title="{taskHeaderData>/TaskTitle}" titleActive="false">
 								<attributes>
-									<ObjectAttribute title="Created On" text="{taskHeaderData>/CreatedOn}"/>
+									<ObjectAttribute title="Created On" text="{taskHeaderData>/CreatedOnStr}"/>
 									<ObjectAttribute title="Description" text="{taskHeaderData>/Description}"/>
 								</attributes>
 								<statuses>
@@ -19,7 +19,7 @@
 							<Panel class="sapUiResponsiveMargin" accessibleRole="Region">
 								<headerToolbar>
 									<OverflowToolbar>
-										<Title text="Requestor Details"/>
+										<Title text="Task Context"/>
 									</OverflowToolbar>
 								</headerToolbar>
 								<content>
@@ -36,17 +36,17 @@
 												<f:formElements>
 													<f:FormElement label="Name">
 														<f:fields>
-															<Text text="{taskData>/Name}" id="nameText"/>
+															<Text text="{taskContextData>/Name}" id="nameText"/>
 														</f:fields>
 													</f:FormElement>
 													<f:FormElement label="Street">
 														<f:fields>
-															<Text text="{taskData>/Street} {taskData>/HouseNumber}"/>
+															<Text text="{taskContextData>/Street} {taskContextData>/HouseNumber}"/>
 														</f:fields>
 													</f:FormElement>
 													<f:FormElement label="ZIP Code/City">
 														<f:fields>
-															<Text text="{taskData>/ZIPCode} {taskData>/City}"/>
+															<Text text="{taskContextData>/ZIPCode} {taskContextData>/City}"/>
 														</f:fields>
 													</f:FormElement>
 												</f:formElements>

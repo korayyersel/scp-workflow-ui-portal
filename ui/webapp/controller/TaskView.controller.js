@@ -32,7 +32,7 @@ sap.ui.define([
 				dataType: "json",
 				success: function (result, xhr, data) {
 					var context = data.responseJSON;
-					this.getView().getModel("taskData").setData(context);
+					this.getView().getModel("taskContextData").setData(context);
 				}.bind(this)
 			});
 		}

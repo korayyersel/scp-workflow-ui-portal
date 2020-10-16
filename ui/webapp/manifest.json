@@ -73,7 +73,11 @@
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {}
 			},
-			"taskData": {
+			"taskContextData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {}
+            },
+            "taskHeaderData": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {}
 			}
