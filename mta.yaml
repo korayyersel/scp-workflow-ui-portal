@@ -16,6 +16,7 @@ modules:
       - name: workflow-sampleproject-dest
       - name: workflow-sampleproject-portal-resources
       - name: workflow-sampleproject-workflowservice
+      - name: workflow-sampleproject-conn
   - name: workflow-sampleproject-ui-deployer
     type: com.sap.html5.application-content
     path: ui-deployer
@@ -90,3 +91,8 @@ resources:
       service-plan: standard
       service: portal
     type: org.cloudfoundry.managed-service
+  - name: workflow-sampleproject-conn
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: connectivity
