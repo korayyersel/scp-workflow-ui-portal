@@ -66,7 +66,7 @@
 			"priority": "MEDIUM",
 			"isHiddenInLogForParticipant": false,
 			"userInterface": "sapui5://comqperiorworkflowsampleui/com.qperior.workflowsample.ui",
-			"recipientUsers": "koray.yersel@q-perior.com",
+			"recipientUsers": "${info.startedBy}",
 			"id": "usertask1",
 			"name": "FirstTask",
 			"documentation": "Documentation: First task in sample workflow"
@@ -78,7 +78,7 @@
 			"priority": "HIGH",
 			"isHiddenInLogForParticipant": false,
 			"userInterface": "sapui5://comqperiorworkflowsampleui/com.qperior.workflowsample.ui",
-			"recipientUsers": "koray.yersel@q-perior.com",
+			"recipientUsers": "${info.startedBy}",
 			"id": "usertask2",
 			"name": "SecondTask",
 			"documentation": "Documentation: Second task in sample workflow"
