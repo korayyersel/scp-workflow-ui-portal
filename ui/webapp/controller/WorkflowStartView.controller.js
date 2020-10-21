@@ -42,6 +42,16 @@ sap.ui.define([
 					});
 				}
 			});
-		}
+        },
+        
+        onCallODataCC: function(evt){
+            $.ajax({
+				url: "/comqperiorworkflowsampleui/gateway/sap/opu/odata/...?$format=json",
+				method: "GET",
+				success: function (result, xhr, data) {
+					var test = data;
+				}
+			});
+        }
 	});
 });

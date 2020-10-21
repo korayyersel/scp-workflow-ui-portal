@@ -30,6 +30,15 @@ sap.ui.define([
 					this.getView().getModel("taskContextData").setData(context);
 				}.bind(this)
 			});
-		}		
+        },
+        onCallODataCC: function(evt){
+            $.ajax({
+				url: "/comqperiorworkflowsampleui/gateway/sap/opu/odata/...?$format=json",
+				method: "GET",
+				success: function (result, xhr, data) {
+					var test = data;
+				}
+			});
+        }		
 	});
 });

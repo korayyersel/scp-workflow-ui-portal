@@ -49,6 +49,11 @@
 															<Text text="{taskContextData>/ZIPCode} {taskContextData>/City}"/>
 														</f:fields>
 													</f:FormElement>
+                                                    <f:FormElement label="">
+														<f:fields>
+															<Button text="OData Service über CC aufrufen" press="onCallODataCC"/>
+														</f:fields>
+													</f:FormElement>
 												</f:formElements>
 											</f:FormContainer>
 										</f:formContainers>

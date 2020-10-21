@@ -52,6 +52,16 @@
 													</Button>
 												</f:fields>
 											</f:FormElement>
+                                            <f:FormElement label="">
+												<f:fields>
+													<Text text=""/>
+													<Button text="OData Service über CC aufrufen" press="onCallODataCC">
+														<layoutData>
+															<l:GridData span="XL1 L2 M2 S4"/>
+														</layoutData>
+													</Button>
+												</f:fields>
+											</f:FormElement>
 										</f:formElements>
 									</f:FormContainer>
 								</f:formContainers>
