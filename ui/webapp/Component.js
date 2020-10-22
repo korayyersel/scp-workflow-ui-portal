@@ -90,12 +90,26 @@ sap.ui.define([
                         }
                     };
 
+                    var oJumpToServiceTaskAction = {
+                        sBtnTxt: "Finish process",
+                        onBtnPressed: function (e) {
+                            that._completeTask(that.oComponentData.inboxHandle.attachmentHandle.detailModel.getData().InstanceID, {SecondTaskResult: "gotoservicetask"})
+                        }
+                    };
+
                     // add task action buttons
                     startupParameters.inboxAPI.addAction({
                         action: oFinishAction.sBtnTxt,
                         label: oFinishAction.sBtnTxt,
                         type: "Approve"
                     }, oFinishAction.onBtnPressed);
+                    this.getRouter().navTo("SecondTaskRoute", { taskId: taskId, taskType: taskType });
+
+                    startupParameters.inboxAPI.addAction({
+                        action: oJumpToServiceTaskAction.sBtnTxt,
+                        label: oJumpToServiceTaskAction.sBtnTxt,
+                        type: "Approve"
+                    }, oJumpToServiceTaskAction.onBtnPressed);
                     this.getRouter().navTo("SecondTaskRoute", { taskId: taskId, taskType: taskType });
                 }
 
