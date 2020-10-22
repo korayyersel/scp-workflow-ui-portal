@@ -91,7 +91,7 @@ sap.ui.define([
                     };
 
                     var oJumpToServiceTaskAction = {
-                        sBtnTxt: "Finish process",
+                        sBtnTxt: "Call Service Task",
                         onBtnPressed: function (e) {
                             that._completeTask(that.oComponentData.inboxHandle.attachmentHandle.detailModel.getData().InstanceID, {SecondTaskResult: "gotoservicetask"})
                         }
